@@ -25,7 +25,7 @@ output "private_subnets" {
 # VPC Protected Subnets
 output "protected_subnets" {
   description = "List of IDs of protected subnets"
-  value       = module.vpc.database_subnets
+  value       = module.vpc.protected_subnets
 }
 
 # VPC NAT gateway Public IP

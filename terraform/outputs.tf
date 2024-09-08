@@ -29,7 +29,7 @@ output "private_subnets" {
 # VPC Protected Subnets
 output "protected_subnets" {
   description = "List of IDs of protected subnets"
-  value       = module.vpc.database_subnets
+  value       = module.vpc.protected_subnets
 }
 
 # VPC NAT gateway Public IP
@@ -45,13 +45,13 @@ output "nat_public_ips" {
 # ec2_bastion_public_instance_id
 output "ec2_bastion_public_instance_ids" {
   description = "List of IDs of instances"
-  value       = module.bastian_host.ec2_bastion_public_instance_ids
+  value       = module.bastion_host.ec2_bastion_public_instance_ids
 }
 
 ## ec2_bastion_public_ip
 output "ec2_bastion_public_ip" {
   description = "Elastic IP associated to the Bastion Host"
-  value       = module.bastian_host.ec2_bastion_public_ip
+  value       = module.bastion_host.ec2_bastion_public_ip
 }
 
 #############################
