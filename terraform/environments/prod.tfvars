@@ -1,6 +1,6 @@
 project = "assignment"
 aws_region = "us-east-1"
-environment = "prod"
+environment = "production"
 aws_account_id = ""
 
 #############################
