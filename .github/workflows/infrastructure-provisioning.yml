@@ -63,7 +63,7 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        run: terraform plan -var-file=./environments/prod.tfvars.tfvars -var="aws_account_id=${{ secrets.AWS_ACCOUNT_ID }}" -var="cluster_admin_user_arn=${{ secrets.CLUSTER_ADMIN_ARN }}"
+        run: terraform plan -var-file=./environments/prod.tfvars -var="aws_account_id=${{ secrets.AWS_ACCOUNT_ID }}" -var="cluster_admin_user_arn=${{ secrets.CLUSTER_ADMIN_ARN }}"
         continue-on-error: true
 
       - name: Terraform Plan Status
@@ -71,4 +71,4 @@ jobs:
         run: exit 1
         
       - name: Terraform Apply
-        run: terraform apply -var-file=./environments/prod.tfvars.tfvars -auto-approve -var="aws_account_id=${{ secrets.AWS_ACCOUNT_ID }}" -var="cluster_admin_user_arn=${{ secrets.CLUSTER_ADMIN_ARN }}"
+        run: terraform apply -var-file=./environments/prod.tfvars -auto-approve -var="aws_account_id=${{ secrets.AWS_ACCOUNT_ID }}" -var="cluster_admin_user_arn=${{ secrets.CLUSTER_ADMIN_ARN }}"
