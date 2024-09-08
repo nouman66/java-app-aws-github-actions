@@ -2,7 +2,7 @@ name: Provision Infrastructure for the Application
 on:
   push:
     branches:
-      - feature-branch
+      - master
     paths:
       - "terraform/*"
 env:
