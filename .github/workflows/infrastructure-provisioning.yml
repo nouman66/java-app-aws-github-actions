@@ -1,10 +1,15 @@
 name: Provision Infrastructure for the Application
+
 on:
-  push:
-    branches:
-      - feature-branch
-    paths:
-      - "terraform/*"
+  pull_request:
+    branches: [ main ]
+
+# on:
+#   push:
+#     branches:
+#       - feature-branch
+#     paths:
+#       - "terraform/*"
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   TF_STATE_S3_BUCKET: devops-assignment-prod-web-app
