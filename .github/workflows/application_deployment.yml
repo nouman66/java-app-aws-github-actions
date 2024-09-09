@@ -10,7 +10,7 @@ jobs:
     uses: ./.github/workflows/checkout.yml
   
   Docker_build_push:
-    uses: ./.github/workflows/docker_build_push.yml
+    uses: ./.github/workflows/build_images.yml
     secrets:
       AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
