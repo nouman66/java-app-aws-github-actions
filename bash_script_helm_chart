@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Variables
+NAMESPACE="java-app-namespace"
+HELM_RELEASE="java-app-release"
+CHART_DIR="./helm_chart/java-web-app/"
+IMAGE_TAG="latest"
+
+# Ensure kubectl and helm are installed
+if ! command -v helm &> /dev/null
+then
+    echo "Helm is not installed. Installing helm..."
+    curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+fi
+
+# Create namespace if not exists
+kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
+
+# Update Helm dependencies if needed
+helm dependency update $CHART_DIR
+
+# Deploy the Helm chart with the updated image tag
+helm upgrade --install $HELM_RELEASE $CHART_DIR \
+    --namespace $NAMESPACE \
+    --set image.tag=$IMAGE_TAG
+
+echo "Deployment complete!"
