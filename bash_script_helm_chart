@@ -17,6 +17,7 @@ fi
 kubectl get namespace $NAMESPACE || kubectl create namespace $NAMESPACE
 
 # Update Helm dependencies if needed
+
 helm dependency update $CHART_DIR
 
 # Deploy the Helm chart with the updated image tag
